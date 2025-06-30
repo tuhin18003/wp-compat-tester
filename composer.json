@@ -1,8 +1,18 @@
 {
   "name": "tuhin18003/wp-compat-tester",
   "description": "A CLI tool to scan WordPress plugins for compatibility with the latest WordPress versions.",
-  "type": "project",
+  "type": "library",
+  "homepage": "https://github.com/tuhin18003/wp-compat-tester",
   "license": "MIT",
+  "authors": [
+        {
+            "name": "M.Tuhin",
+            "email": "tuhin@codesolz.net"
+        }
+    ],
+  "require": {
+      "php": ">=7.2.5"
+  },
   "autoload": {
     "psr-4": {
       "WPCompat\\": "src/"
@@ -12,5 +22,4 @@
   "scripts": {
     "wp:check": "php bin/wp-check.php"
   },
-  "require": {}
 }

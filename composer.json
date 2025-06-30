@@ -1,5 +1,5 @@
 {
-  "name": "yourname/wp-compat-tester",
+  "name": "tuhin18003/wp-compat-tester",
   "description": "A CLI tool to scan WordPress plugins for compatibility with the latest WordPress versions.",
   "type": "project",
   "license": "MIT",

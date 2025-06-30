@@ -3,7 +3,9 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use WPCompat\Scanner;
 
-$pluginDir = $argv[1] ?? dirname(__DIR__) . '/your-plugin-directory';
+array_shift($argv); // remove the script name
 
-$scanner = new Scanner($pluginDir);
-$scanner->run();
+foreach ($argv as $pluginPath) {
+    $scanner = new Scanner($pluginPath);
+    $scanner->run();
+}

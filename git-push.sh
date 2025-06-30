@@ -23,9 +23,11 @@ git commit -m "$commit_msg"
 git push
 
 if [ -n "$version" ]; then
-    echo "🏷️  Tagging release: v$version"
-    git tag -a "v$version" -m "Release v$version"
-    git push origin "v$version"
+    [[ "$version" =~ ^v ]] && tag="$version" || tag="v$version"
+
+    echo "🏷️  Tagging release: $tag"
+    git tag -a "$tag" -m "Release $tag"
+    git push origin "$tag"
     echo "✅ Tag pushed. GitHub Actions will now handle the release."
 else
     echo "✅ Code pushed. No version tag added."

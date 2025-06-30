@@ -8,36 +8,48 @@ A CLI tool to scan your WordPress plugin code for compatibility issues with the 
 - Scans plugin PHP files for deprecated functions (based on official GitHub source)
 - Warns about improper usage of `plugins_loaded` for translations in WP 6.7+
 
-## Installation
+## Installation (in your plugin project)
 
-1. Clone this repository:
-```bash
-git clone https://github.com/yourname/wp-compat-tester.git
-cd wp-compat-tester
-```
+Inside your plugin project folder:
 
-2. Install dependencies:
 ```bash
-composer install
+composer require --dev tuhin18003/wp-compat-tester
 ```
 
 ## Usage
 
-You can scan a plugin directory using:
+### Option 1: Manually
+Run the CLI tool directly:
 
 ```bash
-composer run wp:check -- /full/path/to/plugin-directory
+vendor/bin/wp-check.php -- ./my-plugin-folder
 ```
 
-Or run directly:
+Or scan multiple paths:
 
 ```bash
-php bin/wp-check.php /path/to/your-plugin
+vendor/bin/wp-check.php -- ./my-plugin.php ./core
+```
+
+### Option 2: Add to composer scripts
+
+In your plugin project's `composer.json`:
+
+```json
+"scripts": {
+  "check:compat": "vendor/bin/wp-check.php -- ./my-plugin.php ./core"
+}
+```
+
+Then run:
+
+```bash
+composer run check:compat
 ```
 
 ## Output Example
 ```
-🔍 Scanning plugin at: /path/to/plugin
+🔍 Scanning plugin at: ./my-plugin.php
 Local WP Version:  6.7.0
 Latest WP Version: 6.7.2
 
